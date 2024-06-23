@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+
+.why-us {
+  padding-top: 10vh;
+  width: 80%;
+  margin-left: 150px;
+
+  padding-bottom: 10vh;
+  grid-template-columns: .2fr 1fr ;
+}
+.why-us > h1 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: hsl(18, 82%, 20%);
+  text-align: center;
+}
+.why-us > p {
+  color: hsl(233, 8%, 62%);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.why-us > img {
+ width: 180px;
+ height:180px;
+ margin-left:520px;
+}
+
+</style>
+
+</head>
+<body>
+
+    {% include 'base2.html' %}   
+    {% block content %}
+    <div class="container2">
+        <section class="why-us">
+          <h1>Fraud activity suspected!!!</h1>
+          <p>Your account will be deactivated, contact customer care</p>
+        </section>
+    </div>
+    
+   
+    <script>
+
+        var timeout;
+        document.onmousemove = function(){
+          clearTimeout(timeout);
+          timeout = setTimeout(function(){location.href="{% url 'login' %}";}, 500);
+        }
+          
+          </script>
+           {% endblock %}
+</body>
+
+</html>

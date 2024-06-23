@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+        <style>
+            .container2 {
+  background-color: hsl(220, 16%, 96%);
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    color:#ffffff;
+    background-color: #4caf50;
+    padding: 15px 32px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition:.5s;
+}
+.btn:hover{
+    background-color: #284378;
+}
+
+.link1{
+  padding: 12px 11px;
+  border: none;
+  width:100px;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    hsl(183, 41%, 54%),
+    hsl(288, 36%, 50%));
+    transition: .5s;
+}
+.link1:hover{
+  background-image: linear-gradient(
+    to right,
+    hsl(22, 75%, 48%),
+    hsl(288, 36%, 50%))
+}
+
+.why-us {
+  padding-top: 10vh;
+  width: 80%;
+  margin-left: 150px;
+
+  padding-bottom: 10vh;
+}
+.why-us > h1 {
+  font-size: 45px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: hsl(233, 26%, 24%);
+  text-align: center;
+}
+.why-us > p {
+  color: hsl(233, 8%, 62%);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.features-section {
+  width: 300px;
+  margin-left: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 10vh;
+}
+.feature-item > img {
+  width: 780px;
+  height:280px;
+  margin-bottom: 5px;
+}
+.feature-item > h1 {
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: hsl(233, 26%, 24%);
+}
+.feature-item > p {
+  color: hsl(233, 8%, 62%);
+  font-weight: 700;
+}
+
+
+.hide{
+  display:none;
+}
+.show{
+  display:block;
+}
+
+
+</style>
+<script>
+    function onButtonClick(){
+  document.getElementById('textInput').className="show";
+}
+</script>
+
+    </head>
+    <body>
+        {% include 'base.html' %}   
+        {% block content %}
+
+        <div class="container2">
+            <section class="why-us">
+              <h1>Health Insurance</h1>
+              <p
+                >Health insurance is an agreement between the insurer and the policyholder whereby an insurance company agrees to reimburse for medical costs incurred by the policyholder during the tenure of the policy. According to the policy terms, the insured may incur medical expenses if they get ill or meet an unfortunate accident that leads to treatment at the hospital. To avail of the coverage benefits of the policy, the policyholder must pay a specific amount periodically, called a health insurance premium. The premium for health insurance is determined by the insurance company and must be paid by the policyholders without any fail either monthly, quarterly, half-yearly, or annually.</p
+              >
+            </section>
+        </div>
+        <br>
+        <section class="features-section">
+            <div class="feature-item">
+                {% for query in schemes %}
+                <br>
+                <h1>{{query.name}}</h1>
+              <img src="{{query.in_image.url}}" alt="" />
+              
+              <a href="{% url 'scheme-detail' scheme=query.id %}" class="btn">View Details</a>
+                  
+                  {% endfor %}
+            </div>
+            
+        </section>
+        <br>
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log in</title>
+     <style>
+        *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+     }
+     body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      flex-wrap: wrap;
+     
+    }
+    .container{
+    max-width: 680px;
+    padding: 28px;
+    margin: 10px 28px;
+    box-shadow: 5px 5px 10px 10px rgb(98, 89, 91);
+    border-radius: 10px;
+    margin-left:50px;
+    margin-top:100px;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding:20px 0;
+    align-items:center;
+}
+.input-box{
+    display: flex;
+    flex-wrap: wrap;
+    width:290px;
+    padding-bottom: 15px;
+}
+    .input-box input{
+    height: 40px;
+    width:95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.input-box:nth-child(2n){
+    float:left;
+} 
+.input-box input:is(:focus, :valid)
+{
+    box-shadow:0 3px 6px rgba(0,0,0,.3);
+    
+}
+.button-container{
+    margin:15px 0;
+
+}
+.button-container button{
+    width:628px;
+    margin-top: 0px;
+    padding: 5px;
+    display: block;
+    font-size: 20px;
+    color: #ccc;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #071aaa,#4741c7);
+}
+.button-container input:hover{
+    background-image: linear-gradient(to right,#61045f,#aa076b);
+}
+h2{
+       font-size: 26px;
+       font-weight: 600;
+       text-align: center;
+       color:#2f4f4f;
+       padding-bottom: 8px;
+       border-bottom: 1px solid silver;
+
+     }
+     </style>
+    </head>
+    <body>
+        {% include 'base.html' %}    
+{% block content %}
+
+<div class="container">
+<form action="" method="POST" class="form-group">
+    {% csrf_token %}
+    {% include 'messages.html' %}
+    <h2>Forgot Password</h2>
+    <div class="content">
+        <div class="input-box">
+<input type="email" name="email" placeholder="Enter registered email-id"/>
+</div>     
+      <div class="button-container">
+        <button type="submit">Submit</button>
+    </div>
+    </div>
+</form>
+</div>
+{% endblock %}
+</body>
+</html>

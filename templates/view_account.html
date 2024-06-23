@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.link{
+    text-decoration: none;
+    border-radius: 10px;
+}
+.link1{
+  padding: 12px 11px;
+  border: none;
+  width:100px;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    hsl(183, 41%, 54%),
+    hsl(288, 36%, 50%));
+    transition: .5s;
+}
+.link1:hover{
+  background-image: linear-gradient(
+    to right,
+    hsl(22, 75%, 48%),
+    hsl(288, 36%, 50%))
+}
+.total{
+ margin-left:5px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 1fr 1fr;
+ column-gap: 0px;
+ justify-content: space-between;
+ border-bottom: 1px solid silver;
+}
+.total1{
+    margin-left:5px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 2fr .2fr;
+ column-gap: 0px;
+ justify-content: space-between;
+
+}
+.head11{
+  font-size: 20px;
+  width:250px;
+}
+.head11 h5{
+  margin-left: none;
+  font-size: 20px;
+  color:#2f313f;
+}
+.balance{
+  font-size: 20px;
+  width:480px;
+}
+.head111{
+    margin-left: 620px;
+}
+.head111 h5{
+  font-size: 30px;
+  color:#2f313f;
+}
+.head112{
+    margin-left: 520px;
+}
+.head112 h5{
+  font-size: 20px;
+  color:#2f313f;
+}
+.balance p{
+  font-weight: 500;
+}
+.name2{
+  font-size: 20px;
+  width:80px;
+}
+
+.button-container{
+    margin:15px 0;
+
+}
+.button-container button{
+    width:628px;
+    margin-top: 0px;
+    padding: 5px;
+    display: block;
+    font-size: 20px;
+    color: #ccc;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #071aaa,#4741c7);
+}
+.button-container button:hover{
+    background-image: linear-gradient(to right,#61045f,#aa076b);
+}
+.whole{
+    margin-left: 300px;
+}
+</style>
+</head>
+<body>
+ {% include 'base2.html' %}   
+{% block content %}
+<br>
+<div class="total1">
+    <div class="head111">
+    <h5>Account Details</h5>
+  </div>
+  <div class="link1">
+    <a href="{% url 'profile' my_id=name %}" class="link">Go back</a>
+    </div>
+  </div>
+  <br>
+  {% if rd %}
+  <div class="total1">
+    <div class="head112">
+    <h5>You have missed {{k}} number of deposits</h5>
+  </div>
+  </div>
+  <br>
+  {% endif %}
+  <div class="whole">
+<div class="total">
+  <div class="head11">
+  <h5>Account Number</h5>
+</div>
+<div class="balance">
+  <p>{{acc_no}}</p>
+</div>
+</div>
+  <br>
+  <div class="total">
+    <div class="head11">
+    <h5>Account was created at</h5>
+  </div>
+  <div class="balance">
+    <p>{{cd}}</p>
+  </div>
+  </div>
+  <br>
+  <div class="total">
+    <div class="head11">
+    <h5>Account Balance</h5>
+  </div>
+  <div class="balance">
+    <p>{{balance}}</p>
+  </div>
+  </div>
+  <br>
+  {% if sv %}
+  <div class="total">
+    <div class="head11">
+    <h5>Interest calculated upto {{ltd}}</h5>
+  </div>
+  <div class="balance">
+    <p>{{inter}}</p>
+  </div>
+  </div>
+  <br>
+  {% endif %}
+  {% if not sv %}
+  {% if rd %}
+  <div class="total">
+    <div class="head11">
+    <h5>Principal Amount</h5>
+  </div>
+  <div class="balance">
+    <p>{{og}}</p>
+  </div>
+  </div>
+  <br>
+  {% endif %}
+  <div class="total">
+    <div class="head11">
+    <h5>Duration</h5>
+  </div>
+  <div class="balance">
+    <p>{{dura}} days</p>
+  </div>
+  </div>
+  <br>
+  <div class="total">
+    <div class="head11">
+    <h5>Interest Rate</h5>
+  </div>
+  <div class="balance">
+    <p>{{interest}} per day</p>
+  </div>
+  </div>
+  <br>
+  <div class="total">
+    <div class="head11">
+    <h5>Maturity Amount</h5>
+  </div>
+  <div class="balance">
+    <p>{{ma}}</p>
+  </div>
+  </div>
+  <br>
+  {% if delete %}
+  <div class="total">
+    <div class="head11">
+    <h5>Final Amount (account was pre-maturely closed)</h5>
+  </div>
+  <div class="balance">
+    <p>{{delete_ma}}</p>
+  </div>
+  </div>
+  {% endif %}
+  <br>
+  <div class="total">
+    <div class="head11">
+    <h5>Maturity Date</h5>
+  </div>
+  <div class="balance">
+    <p>{{md}}</p>
+  </div>
+  </div>
+  {% if rd %}
+  <div class="total">
+    <div class="head11">
+    <h5>Fine</h5>
+  </div>
+  <div class="balance">
+    <p>{{fine}}</p>
+  </div>
+  </div>
+  <br>
+  {% endif %}
+ 
+  </div>
+  {% endif %}
+{% endblock %}
+</body>
+</html>

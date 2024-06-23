@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+
+.link{
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    color:rgb(52, 52, 28);
+    text-align: center;
+}
+.link2{
+  text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    color:rgb(41, 53, 87);
+    text-align: center;
+}
+.profile{
+ margin-left:50px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: .2fr 1fr ;
+ column-gap: 0px;
+ justify-content: space-between;
+}
+.name{
+  font-size: 20px;
+  width:80px;
+}
+.name h3{
+  margin-left: none;
+  font-size: 20px;
+    color:#8389b4;
+}
+.image1{
+  display:block;
+  height:40px;
+    width:40px;
+}
+.icon{
+  line-height: 10px;
+}
+.image2{
+  width:200px;
+  height:200px;
+}
+.gender-category{
+    color:rgb(47, 54, 62);
+
+}
+.gender-category label{
+    padding: 0 20px 0 5px;
+    font-size: 14px;
+}
+.gender-title{
+    width:95%;
+    color:#2f4f4f;
+    font-weight: bold;
+    margin:0px 0;
+    font-size:16px;
+}
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    color:#111010;
+    background-color: #39a73d;
+    padding: 15px 32px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: 1s;
+}
+.btn:hover{
+    background-color: #d7643a;
+}
+</style>
+<title>profile</title>
+</head>
+<body>
+  {% include 'base2.html' %}   
+  {% block content %}
+  <div class="profile">
+  
+  <div class="name">
+<h3>{{name}}</h3>
+</div>
+<div >
+  {% if img %}
+<img class="image2" src="{{img.url}}" alt="connect" style="max-height:300px"> 
+{% endif %}
+</div>
+</div>
+<form method="POST" action="">
+    {% csrf_token %}
+<span class="gender-title">Is this you</span>
+<div class="gender-category">
+
+<input type="radio" name="ans1" id="true">
+<label for="True">Yes</label>
+<input type="radio" name="ans2" id="false">
+<label for="False">No</label>
+</div>
+<button type="submit" class="btn">Continue</button>
+</form>
+<!--<br>
+<h3>{{obj.Address}}</h3>-->
+
+{% endblock %}
+</body>

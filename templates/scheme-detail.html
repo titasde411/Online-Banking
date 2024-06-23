@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<style>
+
+.why-us {
+  padding-top: 10vh;
+  width: 80%;
+  margin-left: 150px;
+
+  padding-bottom: 10vh;
+}
+.why-us > h1 {
+  font-size: 45px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: hsl(233, 26%, 24%);
+  text-align: center;
+}
+.why-us > p {
+  color: hsl(233, 8%, 62%);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.why-us > img {
+ width: 180px;
+ height:180px;
+ margin-left:520px;
+}
+.container2 {
+  background-color: hsl(220, 16%, 96%);
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+
+
+    </head>
+    <body>
+        {% include 'base.html' %}   
+        {% block content %}
+        <div class="container2">
+            <section class="why-us">
+                <img src="{{schemes.in_image.url}}">
+              <h1>{{schemes.name}}</h1>
+              <p>{{schemes.description}}</p>
+            </section>
+        </div>
+        <table>
+            <tr>
+                <th>Feature</th>
+              <th>Specifications</th>
+            </tr>
+        
+        
+        <tr>
+            <td>Sum insured</td>
+            <td>{{schemes.sum_insured}}</td>
+            
+          </tr>
+          <tr>
+            <td>Monthly Premium</td>
+            <td>{{schemes.Annual_premium}}</td>
+            
+          </tr>
+          <tr>
+            <td>Maternity Expenses</td>
+            <td>{{schemes.Maternity_expenses}}</td>
+            
+          </tr>
+          <tr>
+            <td>Waiting Period</td>
+            <td>{{schemes.waiting_period}}</td>
+            
+          </tr>
+          <tr>
+            <td>Disease Capping</td>
+            <td>{{schemes.disease_capping}}</td>
+            
+          </tr>
+          <tr>
+            <td>ICU charges</td>
+            <td>{{schemes.icu_charges}}</td>
+            
+          </tr>
+          <tr>
+            <td>Health Checkups</td>
+            <td>{{schemes.health_checkups}}</td>
+            
+          </tr>
+          <tr>
+            <td>Covers for immediate family</td>
+            <td>{{schemes.Immediate_family}}</td>
+            
+          </tr>
+        
+        </table>
+         {% endblock %}
+
+    </body>
+</html>

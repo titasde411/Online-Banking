@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+      <!--Bootstrap CSS-->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <script>
+        function validate() {  
+        var pass1,pass2,lc,uc,symbol,number,aadhar,fullname,m_no;
+        lc=/[a-z]/g;
+        uc=/[A-Z]/g;
+        number=/[0-9]/g;
+        symbol=/[#*?/$@&%()]/g;
+        pass1=document.getElementById("pass1").value;
+        pass2=document.getElementById("pass2").value;
+        aadhar=document.getElementById("aadhar").value;
+        fullname=document.getElementById("fullname").value;
+        m_no=document.getElementById("m_no").value;
+        saadhar=aadhar.split(" ");
+        sm_no=m_no.split(" ");
+        sfullname=fullname.split(" ");
+        
+        if(pass1.length < 8)
+        {
+           document.getElementById("demo").innerHTML="Password should have atleast 8 characters";
+           alert("password should have atleast 8 characters");
+           return false;
+        }
+        else if(!pass1.match(uc)||!pass1.match(lc)||!pass1.match(number)||!pass1.match(symbol))
+        {
+            alert("password should have atleast one uppercase, one lowercase, one numerical,one symbol from '#,?,/,*,%'");
+            return false;
+        }
+        else if(aadhar.match(uc) || aadhar.match(lc) || aadhar.match(symbol) || aadhar.length!=12 || saadhar.length>1)
+        {
+          alert("Enter a valid aadhar-id");
+           return false;
+        }
+        else if(m_no.match(uc) || m_no.match(lc) || m_no.match(symbol) || m_no.length!=10 || sm_no.length>1)
+        {
+          alert("Enter a valid mobile number");
+           return false;
+        }
+        else if(sfullname.length<2)
+        {
+          alert("Enter a valid full name");
+           return false;
+        }
+        else if(pass1!=pass2)
+        {
+            
+            
+                alert("Password does not match");
+              return false;
+
+        }
+        
+        return true;
+        }
+      </script>
+    
+    <style>
+    /* *{
+      margin: 0;
+      padding: 0;
+      
+      font-family: sans-serif;
+     }
+    body{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+     
+    }*/
+  
+     h2{
+       font-size: 26px;
+       font-weight: 600;
+       text-align: center;
+       color:#2f4f4f;
+       padding-bottom: 8px;
+       border-bottom: 1px solid silver;
+
+     }
+
+     /* css */
+
+     .container{
+    max-width: 680px;
+    padding: 28px;
+    margin: 0 28px;
+    box-shadow: 0 15px 20px #ABB2B9;
+    margin-left:500px;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding:20px 0;
+    align-items:center;
+}
+.input-box{
+    display: flex;
+    flex-wrap: wrap;
+    width:290px;
+    padding-bottom: 15px;
+}
+ .input-box:nth-child(2n){
+    float:left;
+} 
+.gender-title{
+    width:95%;
+    color:#2f4f4f;
+    font-weight: bold;
+    margin:0px 0;
+    font-size:16px;
+}
+.input-box input{
+    height: 40px;
+    width:95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.input-box input:is(:focus, :valid)
+{
+    box-shadow:0 3px 6px rgba(0,0,0,.3);
+    
+}
+.gender-category{
+    color:rgb(47, 54, 62);
+
+}
+.gender-category label{
+    padding: 0 20px 0 5px;
+    font-size: 14px;
+}
+.alert{
+    font-size: 14px;
+    font-style: italic;
+    color: dimgray;
+    margin: none;
+    padding: 15px;
+}
+.button-container{
+    margin:15px 0;
+
+}
+.button-container input{
+    width:628px;
+    margin-top: 0px;
+    padding: 5px;
+    display: block;
+    font-size: 20px;
+    color: #ccc;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #071aaa,#4741c7);
+    cursor: pointer;
+    transition: .5s;
+}
+.button-container input:hover{
+    background-image: linear-gradient(to right,#61045f,#aa076b);
+}
+    </style>
+    
+    <title>Registration</title>
+    </head>
+
+    <body>
+      {% include 'base.html' %}   
+{% block content %}
+<div class="container">
+
+    <form method="POST" action='{{ action_url }}' enctype='multipart/form-data' onsubmit="return validate()">
+      {% csrf_token %}
+      <h2>Registration/ Sign-up</h2>
+      <div class="content">
+        <div class="input-box">
+      	 <input type="text" name="name" id="fullname" placeholder="enter your name"/>
+        </div>
+        <div class="input-box">
+        <input type="text" name="Date_of_birth" placeholder="enter your dob"/>
+      </div>
+      <div class="input-box">
+        <input type="text" name="Address" placeholder="enter your address"/>
+      </div>
+      <div class="input-box">
+        <input type="text" name="aadhar" id="aadhar" placeholder="enter your aadhar"/>
+      </div>
+      <div class="input-box">
+        <input type="text" name="username" placeholder="enter your username"/>
+      </div>
+      <div class="input-box">
+        <input type="password" name="password" id="pass1" placeholder="enter your password"/>
+      </div>
+      <div class="input-box">
+        <input type="password" name="retype_password" id="pass2" placeholder="Retype Password"><br>
+      </div>
+      <div class="input-box">
+        <input type="text" name="secret_question" placeholder="enter your nickname"/>
+      </div>
+      <div class="input-box">
+        <input type="email" name="email" placeholder="enter your email"/>
+      </div>
+      <div class="input-box">
+        <input type="text" name="Mobile_number" id="m_no" placeholder="enter your number"/>
+      </div>
+      <div class="input-box">
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+        
+      </div>
+      <span class="gender-title">Married</span>
+      <div class="gender-category">
+
+      <input type="radio" name="marital_status" id="true">
+      <label for="true">True</label>
+      <input type="radio" name="marital_status1" id="false">
+      <label for="false">False</label>
+
+      </div>
+      <br>
+      <div class="alert" >
+          <input type="checkbox" name="terms" id="terms" class="messageCheckbox" required>&nbsp;By signing up to this form you agree to your
+           <a href="#service">Terms of Service</a> and <a href="#policy">Privacy Policy</a>
+          </div>
+      	<div class="button-container">
+          <input type="submit" value="Register">
+        </div>
+      </div> 
+	</form>
+</div>
+{% endblock %}
+</body>
+</html>

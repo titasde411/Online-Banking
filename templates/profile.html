@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.link{
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    color:rgb(52, 52, 28);
+    text-align: center;
+}
+.link2{
+  text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    color:rgb(41, 53, 87);
+    text-align: center;
+}
+.profile{
+ margin-left:5px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: .2fr 1fr .1fr .1fr .2fr .3fr;
+ column-gap: 0px;
+ justify-content: space-between;
+}
+.total{
+ margin-left:5px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 1fr 5.5fr;
+ column-gap: 0px;
+ justify-content: space-between;
+}
+.head11{
+  font-size: 20px;
+  width:150px;
+}
+.head11 h5{
+  margin-left: none;
+  font-size: 20px;
+  color:#2f313f;
+}
+.balance{
+  font-size: 20px;
+  width:80px;
+}
+.balance p{
+  font-weight: 500;
+}
+.name{
+  font-size: 20px;
+  width:80px;
+}
+.name h3{
+  margin-left: none;
+  font-size: 20px;
+  color:#8389b4;
+}
+.image1{
+  display:block;
+  height:40px;
+    width:40px;
+}
+.icon{
+  line-height: 10px;
+}
+.image2{
+  width:100px;
+  height:100px;
+}
+.link1{
+  padding: 12px 11px;
+  border: none;
+  width:160px;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    hsl(183, 41%, 54%),
+    hsl(288, 36%, 50%))
+}
+.link1:hover{
+  background-image: linear-gradient(
+    to right,
+    hsl(22, 75%, 48%),
+    hsl(288, 36%, 50%))
+}
+</style>
+<title>profile</title>
+</head>
+<body>
+  {% include 'base2.html' %}   
+  {% block content %}
+  <div class="profile">
+    <div class="link1">
+      <a href="{% url 'create_account' %}" class="link" id="ca">Create account</a>
+    </div>
+    <div class="link1">
+      <a href="{% url 'update_profile' %}" class="link">Update Profile</a>
+    </div>
+    <div class="link1">
+      <a href="{% url 'apply-scheme' %}" class="link">Health Insurance</a>
+    </div>
+    <div class="icon">
+    <img class="image1" src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg" alt=""/>
+  </div>
+  <div class="name">
+<h3>{{obj.name}}</h3>
+</div>
+<div >
+  {% if obj.image %}
+<img class="image2" src="{{obj.image.url}}" alt="connect" style="max-height:300px"> 
+{% endif %}
+</div>
+</div>
+<!--<br>
+<h3>{{obj.Address}}</h3>-->
+<br>
+<h2>Savings Account</h2>
+<table>
+  <tr>
+    <th>Account No</th>
+    <th>Account Summary</th>
+    <th>Balance</th>
+    <th>Withdraw</th>
+    <th>Deposit</th>
+    <th>Transactions</th>
+  </tr>
+
+{% for area in savings %}
+
+<tr>
+  <td>{{area.account_no}}</td>
+  <td><a href="{% url 'view_account' my_acc=area.account_no %}" class="link2">Summary</a></td>
+  <td>{{area.balance}}</td>
+  <td><a href="{% url 'withdraw' my_acc=area.account_no %}" class="link2">Withdraw</a></td>
+  <td><a href="{% url 'deposit' my_acc=area.account_no %}" class="link2">Deposit</a></td>
+  <td><a href="{% url 'transaction' my_acc=area.account_no %}" class="link2">Transactions</a></td>
+</tr>
+
+{% endfor %}
+</table>
+<div class="total">
+  <div class="head11">
+  <h5>Total Balance</h5>
+</div>
+<div class="balance">
+  <p>{{sb}}</p>
+</div>
+</div>
+<br>
+<h2>Fixed Deposit accounts</h2>
+<table>
+  <tr>
+    <th>Account No</th>
+    <th>Account Summary</th>
+    <th>Balance</th>
+    <th>Delete</th>
+  </tr>
+
+{% for area in fd %}
+
+<tr>
+  <td>{{area.account_no}}</td>
+  <td><a href="{% url 'view_account' my_acc=area.account_no %}" class="link2">Summary</a></td>
+  <td>{{area.balance}}</td>
+  {% if area.is_matured %}
+  <td><p>Matured</p></td>
+  {% elif area.is_deleted %}
+  <td><p>Pre maturely deleted</p></td>
+  {% else %}
+  <td><a href="{% url 'delete' my_acc=area.account_no %}" class="link2">Delete</a></td>
+  {% endif %}
+</tr>
+
+{% endfor %}
+</table>
+<div class="total">
+  <div class="head11">
+  <h5>Total Balance</h5>
+</div>
+<div class="balance">
+  <p>{{fdb}}</p>
+</div>
+</div>
+<br>
+<h2>Recurring Deposit accounts</h2>
+<table>
+  <tr>
+    <th>Account No</th>
+    <th>Account Summary</th>
+    <th>Balance</th>
+    <th>Interest</th>
+    <th>Delete</th>
+  </tr>
+
+{% for area in rd %}
+
+<tr>
+  <td>{{area.account_no}}</td>
+  <td><a href="{% url 'view_account' my_acc=area.account_no %}" class="link2">Summary</a></td>
+  <td>{{area.balance}}</td>
+  <td>{{area.interest}}</td>
+  {% if area.is_matured %}
+  <td><p>Matured</p></td>
+  {% elif area.is_stuck %}
+  <td><p>not all installments paid</p></td>
+  {% elif area.is_deleted %}
+  <td><p>Pre maturely deleted</p></td>
+  {% else %}
+  <td><a href="{% url 'delete' my_acc=area.account_no %}" class="link2">Delete</a></td>
+  {% endif %}
+
+</tr>
+
+{% endfor %}
+</table>
+<div class="total">
+  <div class="head11">
+  <h5>Total Balance</h5>
+</div>
+<div class="balance">
+  <p>{{rdb}}</p>
+</div>
+</div>
+{% endblock %}
+<script>
+
+var timeout;
+document.onmousemove = function(){
+  clearTimeout(timeout);
+  timeout = setTimeout(function(){location.href="{% url 'login' %}";}, 60000);
+}
+  
+  </script>
+</body>

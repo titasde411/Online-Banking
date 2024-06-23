@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+
+.why-us {
+  padding-top: 10vh;
+  width: 80%;
+  margin-left: 150px;
+
+  padding-bottom: 10vh;
+  grid-template-columns: .2fr 1fr ;
+}
+.why-us > h1 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: hsl(18, 82%, 20%);
+  text-align: center;
+}
+.why-us > p {
+  color: hsl(233, 8%, 62%);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.why-us > img {
+ width: 180px;
+ height:180px;
+ margin-left:520px;
+}
+.link{
+    text-decoration: none;
+    border-radius: 10px;
+}
+.link1{
+  padding: 12px 11px;
+  border: none;
+  width:100px;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    hsl(183, 41%, 54%),
+    hsl(288, 36%, 50%));
+    transition: .5s;
+}
+.link1:hover{
+  background-image: linear-gradient(
+    to right,
+    hsl(22, 75%, 48%),
+    hsl(288, 36%, 50%))
+}
+</style>
+</head>
+<body>
+    {% include 'base2.html' %}   
+    {% block content %}
+
+    <div class="container2">
+        <section class="why-us">
+          <h1>Account has been deleted</h1>
+         
+        </section>
+    </div>
+    <div class="link1">
+        <a href="{% url 'profile' my_id=name %}" class="link">Go back</a>
+        </div>
+
+    {% endblock %}
+</body>
+</html>

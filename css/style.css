@@ -1,0 +1,256 @@
+.button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    color:#111010;
+    background-color: #39a73d;
+    padding: 15px 32px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: 1s;
+}
+.button:hover{
+    background-color: #d7643a;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image:linear-gradient(rgba(32, 33, 49, 0.7),rgba(32,33,49,0.7)), url('https://media.istockphoto.com/id/1149958175/photo/modern-skyscrapers-in-midtown-manhattan.jpg?s=612x612&w=0&k=20&c=Q8y5mYKJKp2vm4g7VQsfTWKK6XdoLjVrXR4yBcNX724=');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: rgb(163, 154, 187);
+    text-decoration: none;
+    font-size: 20px; 
+    text-transform: uppercase;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: rgb(150,0,30,.7) ;
+    display: block;
+    margin: auto;
+    transition: .5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+
+.text-box{
+    width: 90%;
+    color:rgba(82, 74, 174, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h1{
+    font-size: 80px;
+    font-weight: 900;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 30px;
+    font-weight:400;
+    color:rgba(127, 117, 222, 0.7);
+}
+.logo{
+    display:inline-block;
+    position: absolute;
+    left: 30px;
+    color:rgb(122, 171, 220);
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.service
+{
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 80px;
+
+}
+.service h1{
+    font-size: 36px;
+    font-weight: 600;
+    color: brown;
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+.text{
+    display:inline-block;
+    position: absolute;
+    right:600px;
+    color:rgb(27, 48, 7);
+    font-size: 20px;
+    font-weight: 200;
+    border:#f44336;
+    color:rgba(72, 72, 161, 0.7);
+}
+.service-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: .5s;
+
+}
+.service-col:hover{
+box-shadow: 0 0 20px rgba(0,0,0,.3);
+}
+.ground{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+.ground-col{
+    flex-basis: 30%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position:relative;
+    overflow: hidden;
+}
+.ground-col img{
+    width: 100%;
+}
+
+.layer{
+    background: transparent;
+    height:100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .5s;
+}
+.layer:hover{
+background: rgba(200,100,100,.7);
+}
+.layer h5{
+    width: 100%;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    transition: .5s;
+    opacity: 0;
+}
+.layer:hover h5{
+bottom: 49%;
+opacity: 1;
+}
+
+/*for slideshow*/
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #353e4a;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 8px 12px;
+    position: absolute;
+    top:0;
+    left:400px;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}

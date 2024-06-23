@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.link{
+    text-decoration: none;
+    border-radius: 10px;
+}
+.link1{
+  padding: 12px 11px;
+  border: none;
+  width:100px;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    hsl(183, 41%, 54%),
+    hsl(288, 36%, 50%));
+    transition: .5s;
+}
+.link1:hover{
+  background-image: linear-gradient(
+    to right,
+    hsl(22, 75%, 48%),
+    hsl(288, 36%, 50%))
+}
+h2{
+       font-size: 26px;
+       font-weight: 600;
+       text-align: center;
+       color:#2f4f4f;
+       padding-bottom: 8px;
+
+     }
+
+ .head{
+ margin-left:5px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 2.1fr .2fr;
+ column-gap: 0px;
+ justify-content: space-between;
+ }    
+</style>
+</head>
+<body>
+  {% include 'base2.html' %}    
+  {% block content %}
+  <br>
+  <div class="head">
+    <div class="head1">
+<h2>Transactions</h2>
+</div>
+<div class="link1">
+  <a href="{% url 'profile' my_id=name %}" class="link">Go back</a>
+  </div>
+</div>
+<br>
+
+<br>
+<table>
+    <tr>
+        <th>Transaction Number</th>
+      <th>Transaction Type</th>
+      <th>Transacted to</th>
+      <th>Amount</th>
+      <th>Time</th>
+    </tr>
+
+ {% for area in tr %}
+
+<tr>
+    <td>{{area.id}}</td>
+    <td>{{area.transaction_type}}</td>
+    <td>{{area.oppo_acc}}</td>
+    <td>{{area.amount}}</td>
+    <td>{{area.Date_time}}</td>
+    
+  </tr>
+
+{% endfor %}
+
+</table>
+{% endblock %}
+</body>

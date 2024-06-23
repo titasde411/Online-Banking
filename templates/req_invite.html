@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   
+        <style>
+
+.why-us {
+  padding-top: 10vh;
+  width: 80%;
+  margin-left: 150px;
+
+  padding-bottom: 10vh;
+  grid-template-columns: .2fr 1fr ;
+}
+.why-us > h1 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: hsl(233, 26%, 24%);
+  text-align: center;
+}
+.why-us > p {
+  color: hsl(233, 8%, 62%);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.why-us > img {
+ width: 180px;
+ height:180px;
+ margin-left:520px;
+}
+
+.container{
+    max-width: 680px;
+    padding: 28px;
+    margin: 10px 28px;
+    box-shadow: 5px 5px 10px 10px rgb(98, 89, 91);
+    border-radius: 10px;
+    margin-left:450px;
+    margin-top:100px;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding:20px 0;
+    align-items:center;
+}
+.input-box{
+    display: flex;
+    flex-wrap: wrap;
+    width:290px;
+    padding-bottom: 15px;
+}
+    .input-box input{
+    height: 40px;
+    width:95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.input-box:nth-child(2n){
+    float:left;
+} 
+.input-box input:is(:focus, :valid)
+{
+    box-shadow:0 3px 6px rgba(0,0,0,.3);
+    
+}
+.button-container{
+    margin:15px 0;
+
+}
+.button-container button{
+    width:628px;
+    margin-top: 0px;
+    padding: 5px;
+    display: block;
+    font-size: 20px;
+    color: #ccc;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #071aaa,#4741c7);
+}
+.button-container button:hover{
+    background-image: linear-gradient(to right,#61045f,#aa076b);
+}
+.link{
+    text-decoration: none;
+    border-radius: 10px;
+}
+.link1{
+  padding: 12px 11px;
+  border: none;
+  width:100px;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    hsl(183, 41%, 54%),
+    hsl(288, 36%, 50%));
+    transition: .5s;
+}
+.link1:hover{
+  background-image: linear-gradient(
+    to right,
+    hsl(22, 75%, 48%),
+    hsl(288, 36%, 50%))
+}
+        </style>
+
+
+    </head>
+
+    <body>
+
+        {% include 'base2.html' %}    
+        {% block content %}
+        <div class="link1">
+            <a href="{% url 'profile' my_id=name %}" class="link">Go back</a>
+            </div>
+          </div>
+          <div class="container2">
+            <section class="why-us">
+              <h1>Invite friends and family to register with S.P.I.T Net Banking</h1>
+            </section>
+        </div>
+        <div class="container">
+
+            <form action="" method="POST" class="form-group" >
+                {% csrf_token %}
+                <div class="content">
+                    <div class="input-box">
+            <input type="email" placeholder="recipient's email-id" name="email">
+        </div>
+       
+       
+        <div class="button-container">
+            <button type="submit">Invite</button>
+        </div>
+        </div>
+            </form>
+
+        {% endblock %}
+    </body>
+</html>

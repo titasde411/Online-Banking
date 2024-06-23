@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<style>
+.whole{
+    margin-left: 300px;
+}
+.balance p{
+  font-weight: 500;
+}
+.head11{
+  font-size: 20px;
+  width:250px;
+}
+.head11 h5{
+  margin-left: none;
+  font-size: 20px;
+  color:#2f313f;
+}
+.balance{
+  font-size: 20px;
+  width:480px;
+}
+.head111{
+    margin-left: 620px;
+}
+.head111 h5{
+  font-size: 30px;
+  color:#2f313f;
+}
+.total{
+ margin-left:5px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 1fr 1fr;
+ column-gap: 0px;
+ justify-content: space-between;
+ border-bottom: 1px solid silver;
+}
+.head111{
+    margin-left: 620px;
+}
+.head111 h5{
+  font-size: 30px;
+  color:#2f313f;
+}
+.total1{
+    margin-left:5px;
+ display: grid;
+ align-items: center; 
+ grid-template-columns: 2fr .2fr;
+ column-gap: 0px;
+ justify-content: space-between;
+
+}
+.link{
+    text-decoration: none;
+    border-radius: 10px;
+}
+.link1{
+  padding: 12px 11px;
+  border: none;
+  width:100px;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right,
+    hsl(183, 41%, 54%),
+    hsl(288, 36%, 50%));
+    transition: .5s;
+}
+.link1:hover{
+  background-image: linear-gradient(
+    to right,
+    hsl(22, 75%, 48%),
+    hsl(288, 36%, 50%))
+}
+</style>
+
+    </head>
+    <body>
+        {% include 'base2.html' %}   
+        {% block content %}
+        <br>
+        <div class="total1">
+            <div class="head111">
+            <h5>Policy Details</h5>
+          </div>
+          <div class="link1">
+            <a href="{% url 'profile' my_id=name %}" class="link">Go back</a>
+            </div>
+          </div>
+          <br>
+          <div class="whole">
+            <div class="total">
+              <div class="head11">
+              <h5>Policy Name</h5>
+            </div>
+            <div class="balance">
+              <p>{{scheme.name}}</p>
+            </div>
+            </div>
+              <br>
+              <div class="total">
+                <div class="head11">
+                <h5>Policy  was applied at</h5>
+              </div>
+              <div class="balance">
+                <p>{{scheme.creation_date}}</p>
+              </div>
+              </div>
+              <br>
+              <div class="total">
+                <div class="head11">
+                <h5>Policy Details</h5>
+              </div>
+              <div class="balance">
+                <a href="{% url 'scheme-detail' scheme=sch_n.id %}">View details</a>
+              </div>
+              </div>
+              <br>
+              <div class="total">
+                <div class="head11">
+                <h5>Number of premiums paid</h5>
+              </div>
+              <div class="balance">
+                <p>{{scheme.prem_pay_count}}</p>
+              </div>
+              </div>
+              <br>
+              <div class="total">
+                <div class="head11">
+                <h5>Pending Payments</h5>
+              </div>
+              <div class="balance">
+                <p>{{scheme.rest_count}}</p>
+              </div>
+              </div>
+          </div>
+          {% endblock %}
+    </body>
+</html>

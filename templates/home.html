@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>home</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+   
+   
+   
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+  
+
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+.header1{
+    height: 350px;
+    width: 100%;
+    background-image:linear-gradient(rgba(32, 33, 49, 0.7),rgba(32,33,49,0.7)), url('https://media.istockphoto.com/id/1149958175/photo/modern-skyscrapers-in-midtown-manhattan.jpg?s=612x612&w=0&k=20&c=Q8y5mYKJKp2vm4g7VQsfTWKK6XdoLjVrXR4yBcNX724=');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    margin-top: 15px;
+}
+.text-box{
+    width: 90%;
+    color:rgba(131, 123, 220, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h4{
+    font-size: 50px;
+    font-weight: 900;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 30px;
+    font-weight:400;
+}
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #24364d;
+    font-size: 60px;
+    font-weight: 700;
+    padding: 8px 12px;
+    position: absolute;
+    top:0;
+    left:10px;
+    text-align:left;
+  }
+  .text p{
+    font-size: 40px;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color .06s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* services */
+.service
+{
+    width:80%;
+    margin:auto;
+    text-align: center;
+    padding-top: 80px;
+
+}
+.service h1{
+    font-size: 36px;
+    font-weight: 600;
+    color: brown;
+}
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.service-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: .5s;
+
+}
+.service-col:hover{
+box-shadow: 0 0 20px rgba(0,0,0,.3);
+}
+.container2 {
+  background-color: hsl(220, 16%, 96%);
+}
+.why-us {
+  padding-top: 10vh;
+  width: 80%;
+  margin-left: 150px;
+
+  padding-bottom: 10vh;
+}
+.why-us > h1 {
+  font-size: 45px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: hsl(233, 26%, 24%);
+  text-align: center;
+}
+.why-us > p {
+  color: hsl(233, 8%, 62%);
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+.features-section {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 10vh;
+}
+.feature-item > img {
+  width: 180px;
+  height:180px;
+  margin-bottom: 5px;
+}
+.feature-item > h1 {
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: hsl(233, 26%, 24%);
+}
+.feature-item > p {
+  color: hsl(233, 8%, 62%);
+  font-weight: 700;
+}
+/* footer */
+.footer {
+  background-color: hsl(233, 26%, 24%);
+  height: 35vh;
+}
+.footer-container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 2rem;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.menu > a {
+  text-decoration: none;
+  color: white;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.social-container {
+  margin-top: 3rem;
+}
+.social-container > img {
+  width:40px;
+  height:40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.footer-container > button {
+  margin-top: 3rem;
+  padding: 12px 28px;
+  border: none;
+  outline-width: 0;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 400;
+  background-image: linear-gradient(
+    120deg,
+    hsl(192, 70%, 51%),
+    hsl(136, 65%, 51%)
+  );
+}
+.f-class{
+  box-sizing: border-box;
+  width:100%;
+}
+  </style>
+
+</head>
+  <body>
+      
+    {% include 'base1.html' %}   
+    {% block content %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+
+
+<section class="header1">
+ <div class="text-box" > 
+     <h4> Welcome to SPIT BANK Net-banking</h4>
+ </div>
+</section>
+<br>
+<br>
+<section>
+    <div class="slideshow-container">
+
+        {% for ob in schemes %}
+ 
+        <div class="mySlides fade">
+            {% if ob.in_image %}
+            <div class="text"><p>{{ob.name}}</p></div>
+            <a href="{% url 'scheme-detail' scheme=ob.id %}"><img src="{{ob.in_image.url}}" alt="connect" style="width:100%; max-height:300px;"></a>
+            
+            {% endif %}
+            
+          </div>
+
+        {% endfor %}
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+       <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+        {% for i in length %}
+        <span class="dot" onclick="currentSlide(i)"></span> 
+        {% endfor %}
+      </div>
+</section>
+ <div class="container2">
+      <section class="why-us">
+        <h1>Why choose S.P.I.T bank?</h1>
+        <p
+          >We leverage open banking to turn your bank account into your
+          financial hub.<br />Control your finances like never before.</p
+        >
+      </section>
+      <section class="features-section">
+        <div class="feature-item">
+          <img src="https://static.javatpoint.com/blog/images/advantages-and-disadvantages-of-online-banking.jpg" alt="" />
+          <h1>Online Banking</h1>
+          <p
+            >Our modern web and mobile<br />
+            applications allow you to keep<br />
+            track of your finances whereever<br />
+            you are in the world.</p
+          >
+        </div>
+        <div class="feature-item">
+          <img src="https://cu1.uicdn.net/4ff/72b1099cc8ee1928140fd63893e9f/webapp/34325-n-stage-footer_it_security-front-int.png" alt="" />
+          <h1>Secure Transactions</h1>
+          <p
+            >See exactly where your money<br />
+            goes every month.Recieve<br />
+            notifications when you're close to<br />
+            hitting your limits.
+          </p></div >
+
+        <div class="feature-item">
+          <img src="https://thumbs.dreamstime.com/b/money-payment-transfer-mobile-online-transaction-cash-wallet-credit-card-two-hands-exchange-electronic-concept-fast-179855784.jpg" alt="" />
+          <h1>Fast Onboarding</h1>
+          <p
+            >We don't do branches.Open your<br />
+            accound minutes online and start<br />
+            taking controll of your finances<br />
+            right away.</p
+          >
+        </div>
+      </section>
+        <div class="f-class">
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="social-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/1200px-Facebook_icon.svg.png" alt="" />
+          <img src="https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_1280.jpg" alt="" />
+          <img src="https://play-lh.googleusercontent.com/wIf3HtczQDjHzHuu7vezhqNs0zXAG85F7VmP7nhsTxO3OHegrVXlqIh_DWBYi86FTIGk" alt="" />
+        </div>
+        <div class="menu">
+          <a href="{% url 'home' %}">Home</a>
+          <a href="{% url 'about' %}">About</a>
+          <a href="{% url 'reg' %}">Sign-up</a>
+          <a href="{% url 'login' %}">Log In</a>
+          <a href="{% url 'contact' %}">Contact</a>
+        </div>
+        <div class="menu">
+          <a href="{% url 'scheme' %}">Schemess</a>
+          <a href="#">Support</a>
+          <a href="#">Privacy Policy</a>
+        </div>
+        <button><a href="{% url 'req_invite' %}" class="link">Request Invite</a></button>
+      </div>
+    </footer>
+        </div>
+        <script>
+
+          let slideIndex = 1;
+          showSlides(slideIndex);
+          
+          function plusSlides(n) {
+            showSlides(slideIndex += n);
+          }
+          
+          function currentSlide(n) {
+            showSlides(slideIndex = n);
+          }
+          
+          function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+          }
+          
+          </script>
+  </body>
+</html>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+</body>
+</html>
